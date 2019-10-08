@@ -18,7 +18,7 @@
         "@babel/cli": "^7.6.2",
         "@babel/core": "^7.4.5",
         "@babel/node": "^7.6.2",
-        "@babel/preset-env": "^7.4.5",
+        "@babel/preset-env": "^7.6.3",
         "body-parser": "^1.19.0",
         "compression": "^1.7.4",
         "cors": "^2.8.5",
