@@ -17,7 +17,7 @@
     "dependencies": {
         "@babel/cli": "^7.6.2",
         "@babel/core": "^7.4.5",
-        "@babel/node": "^7.6.2",
+        "@babel/node": "^7.6.3",
         "@babel/preset-env": "^7.4.5",
         "body-parser": "^1.19.0",
         "compression": "^1.7.4",
