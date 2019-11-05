@@ -15,7 +15,7 @@
     "author": "Nick Parsons <nparsons08@gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "@babel/cli": "^7.6.2",
+        "@babel/cli": "^7.7.0",
         "@babel/core": "^7.4.5",
         "@babel/node": "^7.6.2",
         "@babel/preset-env": "^7.4.5",
