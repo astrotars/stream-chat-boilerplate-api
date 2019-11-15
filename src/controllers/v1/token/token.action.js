@@ -5,34 +5,34 @@ import { StreamChat } from 'stream-chat';
 dotenv.config();
 
 exports.token = async (req, res) => {
-    try {
-        const data = req.body;
+	try {
+		const data = req.body;
 
-        let apiKey;
-        let apiSecret;
+		let apiKey;
+		let apiSecret;
 
-        if (process.env.STREAM_URL) {
-            [apiKey, apiSecret] = process.env.STREAM_URL.substr(8)
-                .split('@')[0]
-                .split(':');
-        } else {
-            apiKey = process.env.STREAM_API_KEY;
-            apiSecret = process.env.STREAM_API_SECRET;
-        }
+		if (process.env.STREAM_URL) {
+			[apiKey, apiSecret] = process.env.STREAM_URL.substr(8)
+				.split('@')[0]
+				.split(':');
+		} else {
+			apiKey = process.env.STREAM_API_KEY;
+			apiSecret = process.env.STREAM_API_SECRET;
+		}
 
-        const client = new StreamChat(apiKey, apiSecret);
+		const client = new StreamChat(apiKey, apiSecret);
 
-        const user = Object.assign({}, data, {
-            id: md5(data.email),
-            role: 'admin',
-            image: `https://robohash.org/${data.email}`,
-        });
-        const token = client.createToken(user.id);
-        await client.updateUsers([user]);
+		const user = Object.assign({}, data, {
+			id: md5(data.email), // NOTE: It is not advised to use MD5. Please use a unique database ID for the user.
+			role: 'admin',
+			image: `https://robohash.org/${data.email}`,
+		});
+		const token = client.createToken(user.id);
+		await client.updateUsers([user]);
 
-        res.status(200).json({ user, token, apiKey });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: error.message });
-    }
+		res.status(200).json({ user, token, apiKey });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: error.message });
+	}
 };
