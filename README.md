@@ -75,7 +75,7 @@ To retrieve a token, hit the `/v1/token` endpoint with an HTTP `POST` with the f
 
 ```json
 {
-    "email": "nparsons08@gmail.com",
+    "id": "NG5y5qtDdaX9q5f",
     "name": "Nick Parsons"
 }
 ```
